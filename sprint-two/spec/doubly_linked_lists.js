@@ -18,9 +18,15 @@ describe('Doubly Linked Lists', function() {
 
   it('nodes should have a ".previous" property', function(){
     dlinkedList.addToTail(4);
-    expect(dlinkedList).to.have.property(previous);
+    expect(dlinkedList.tail).to.have.property("previous");
+  });
+
+  it('should have a ".previous" property, which refers to the parent node or null when there is no node', function(){
+    dlinkedList.addToTail(4);
+    expect(dlinkedList.tail.previous).to.equal(null);
     dlinkedList.addToTail(5);
-    expect(dlinkedList.tail.value).to.equal(5);
+    expect(dlinkedList.tail.previous.value).to.equal(4);
+
   });
 
   it('should designate a new tail when new nodes are added', function(){
