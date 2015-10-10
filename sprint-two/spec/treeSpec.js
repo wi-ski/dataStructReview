@@ -2,7 +2,7 @@ describe('tree', function() {
   var tree;
 
   beforeEach(function() {
-    tree = Tree();
+    tree = new Tree();
   });
 
   it('should have methods named "addChild" and "contains", and a property named "value"', function() {
@@ -33,6 +33,8 @@ describe('tree', function() {
   });
 
   it('should correctly detect nested children', function(){
+    // debugger;
+
     tree.addChild(5);
     tree.addChild(6);
     tree.children[0].addChild(7);

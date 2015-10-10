@@ -1,22 +1,30 @@
 var Tree = function(value) {
-  var newTree = {};
-  newTree.value = value;
 
-  // your code here
-  newTree.children = null;  // fix me
+  this.value = value;
+  this.children = [];  // fix me
 
-  return newTree;
+  this.addChild = function(value) {
+    this.children.push(new Tree(value));  // fix me
+  };
+
+  this.contains = function(target) {
+    var cont = false;
+    // debugger;
+    (function trav(tree){
+      if(tree.value===target){
+        cont = true;
+      }
+      if(tree.children.length){
+        tree.children.forEach(function(x){
+          return trav(x);
+        }); 
+      }
+    })(this);
+
+    return cont;
+  };
 };
 
-var treeMethods = {};
-
-treeMethods.addChild = function(value) {
-  // your code here
-  newTree.children = null;  // fix me
-};
-
-treeMethods.contains = function(target) {
-};
 
 
 
